@@ -2,19 +2,23 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Hangman</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<title>Thrash Metal Hangman</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
 
 <div id="game">
 
-	<h1>Hangman</h1>
+	<h1>Thrash Metal Hangman</h1>
 		
-	<div id="start">
-	<h2>Press any key to continue!</h2>
-	</div>
+	
+	<h2 id = "start">Press any key to continue!</h2>
+	
+	<p>
+	<a id="word-blanks"></a>
+	</p>
+	
 
 
 
@@ -23,17 +27,18 @@
 	<a id="wins"></a>
 	</p>
 
-	<p>Current Word:</p>
 
-	<div id="word"></div>
+	<p>Losses:
+	<a id="losses"></a>
+	</p>
 
 
 	<p>Number of guesses remaining:
-	<a id="left"></a>
+	<a id="guessesLeft"></a>
 	</p>
 
 	<p>Letters already guessed:
-	<a id="guessed"></a>
+	<a id="guesses"></a>
 	</p>
 
 
