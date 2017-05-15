@@ -6,7 +6,9 @@ var losses = 0;
 
 var guessesLeft = 7;
 
-var wordsList = ['anthrax','megadeth','slayer','metallica', 'testament'];
+var wordsList = ['anthrax','megadeth','slayer','metallica', 'pantera'];
+
+var randomWord;
 
 var answer;
 
@@ -16,19 +18,30 @@ var blanksAndSuccesses = [];
 
 var alphabet = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-
+document.getElementById("metallica").style.visibility = "hidden";
+document.getElementById("anthrax").style.visibility = "hidden";
+document.getElementById("megadeth").style.visibility = "hidden";
+document.getElementById("slayer").style.visibility = "hidden";
+document.getElementById("pantera").style.visibility = "hidden";
 // startGame()
 // Its how we we will start and restart the game.
 // (Note: It's not being run here. It's just being made for future use.)
 function startGame() {
 
-	document.getElementById("start").style.display = "none";
+	document.getElementById("start").style.visibility = "hidden";
+
+	document.getElementById("metallica").style.visibility = "hidden";
+	document.getElementById("anthrax").style.visibility = "hidden";
+	document.getElementById("megadeth").style.visibility = "hidden";
+	document.getElementById("slayer").style.visibility = "hidden";
+	document.getElementById("pantera").style.visibility = "hidden";
+
 
 	guessesLeft = 7;
 
 	blanksAndSuccesses = [];
 
-	var randomWord = wordsList[Math.floor(Math.random()*wordsList.length)];
+	randomWord = wordsList[Math.floor(Math.random()*wordsList.length)];
 
 	answer = randomWord.split("");
 
@@ -98,23 +111,43 @@ function startGame() {
 
  	if ( blanksAndSuccesses.indexOf("_") === -1 ) {
  		wins++;
- 		alert("You won!");
  		document.getElementById("wins").innerHTML = wins;
- 		startGame();
+ 		if( blanksAndSuccesses.join("") === "metallica"){
+ 			document.getElementById("metallica").style.visibility = "visible";
+ 		} else if ( blanksAndSuccesses.join("") === "anthrax") {
+ 			document.getElementById("anthrax").style.visibility = "visible";
+ 		} else if ( blanksAndSuccesses.join("") === "megadeth") {
+ 			document.getElementById("megadeth").style.visibility = "visible";
+ 		} else if ( blanksAndSuccesses.join("") === "slayer"){
+ 			document.getElementById("slayer").style.visibility = "visible";
+
+ 		} else {
+ 				document.getElementById("pantera").style.visibility = "visible";
+ 			}
+ 		
+ 		guesses = [];
+
+ 		document.getElementById("start").style.visibility = "visible";
+
+ 		
  	}
 
  	if ( guessesLeft === 0 ) {
  		losses++;
  		alert("You lose!");
  		document.getElementById("losses").innerHTML = losses;
- 		startGame();
+ 		
+ 		guesses = [];
+
+ 		document.getElementById("start").style.visibility = "visible";
+ 		
  	}
 
 
 
  }
 
-startGame();
+
 
 document.onkeyup = function(event) {
 
